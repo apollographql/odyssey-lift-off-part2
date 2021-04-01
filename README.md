@@ -2,17 +2,17 @@
 
 Welcome to the companion app of Odyssey Lift-off Part 2! You can [find the course lessons and instructions on Odyssey](https://odyssey.apollographql.com/odyssey-lift-off-part2), Apollo's learning platform.
 
-You can preview the completed demo app here: [TO BE ADDED]()
+You can [preview the completed demo app here](https://lift-off-client-demo.netlify.app/).
 
 ## How to use this repo
 
 The course will walk you step by step on how to implement the features you see in the demo app. This codebase is the starting point of your journey!
 
-There are 3 main folders: 
+There are 3 main folders:
 
 - `server`: The starting point of our GraphQL server.
 - `client`: The starting point of our React application.
-- `final`:  The final stage of both the server and client folders, with all of the steps and code completed!
+- `final`: The final stage of both the server and client folders, with all of the steps and code completed!
 
 To get started:
 
