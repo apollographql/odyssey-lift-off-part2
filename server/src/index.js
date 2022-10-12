@@ -1,9 +1,13 @@
-const { ApolloServer } = require('apollo-server');
+const { ApolloServer } = require('@apollo/server');
+const { startStandaloneServer } = require('@apollo/server/standalone');
+const { addMocksToSchema } = require('@graphql-tools/mock');
+const { makeExecutableSchema } = require('@graphql-tools/schema');
+
 const typeDefs = require('./schema');
 
 const mocks = {
   Query: () => ({
-    tracksForHome: () => [...new Array(9)],
+    tracksForHome: () => [...new Array(6)],
   }),
   Track: () => ({
     id: () => 'track_01',
@@ -20,15 +24,19 @@ const mocks = {
   }),
 };
 
-const server = new ApolloServer({
-  typeDefs,
-  mocks,
-});
+async function startApolloServer() {
+  const server = new ApolloServer({
+    schema: addMocksToSchema({
+      schema: makeExecutableSchema({ typeDefs }),
+      mocks,
+    }),
+  });
+  const { url } = await startStandaloneServer(server);
 
-server.listen().then(() => {
   console.log(`
-    🚀  Server is running!
-    🔉  Listening on port 4000
-    📭  Query at http://localhost:4000
-`);
-});
+      🚀  Server is running
+      📭  Query at ${url}
+    `);
+}
+
+startApolloServer();
