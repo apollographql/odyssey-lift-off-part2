@@ -10,7 +10,9 @@ async function startApolloServer() {
   const server = new ApolloServer({ typeDefs, resolvers });
 
   const { url } = await startStandaloneServer(server, {
-    context: async () => ({ dataSources: { trackAPI: new TrackAPI() } }),
+    context: async () => {
+      return { dataSources: { trackAPI: new TrackAPI() } };
+    },
   });
 
   console.log(`
