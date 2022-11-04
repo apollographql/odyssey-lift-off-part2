@@ -55,10 +55,10 @@ jobs:
           fi
       - name: 'Install dependencies'
         run: |
-          cd client && npm i && cd ..
-          cd server && npm i && cd ..
-          cd final/client && npm i && cd ../..
-          cd final/server && npm i && cd ../..
+          cd client && npm install && cd ..
+          cd server && npm install && cd ..
+          cd final/client && npm install && cd ../..
+          cd final/server && npm install && cd ../..
       - name: 'Update dependencies'
         run: |
           cd client && npm update && cd ..
