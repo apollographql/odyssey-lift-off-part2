@@ -1,23 +1,28 @@
-const { ApolloServer } = require('apollo-server');
+const { ApolloServer } = require('@apollo/server');
+const { startStandaloneServer } = require('@apollo/server/standalone');
+
 const typeDefs = require('./schema');
 const resolvers = require('./resolvers');
 
 const TrackAPI = require('./datasources/track-api');
 
-const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-  dataSources: () => {
-    return {
-      trackAPI: new TrackAPI(),
-    };
-  },
-});
+async function startApolloServer() {
+  const server = new ApolloServer({ typeDefs, resolvers });
 
-server.listen().then(() => {
+  const { url } = await startStandaloneServer(server, {
+    context: async () => {
+      return {
+        dataSources: {
+          trackAPI: new TrackAPI(),
+        },
+      };
+    },
+  });
+
   console.log(`
-    🚀  Server is running!
-    🔉  Listening on port 4000
-    📭  Query at http://localhost:4000
+    🚀  Server is running
+    📭  Query at ${url}
   `);
-});
+}
+
+startApolloServer();
