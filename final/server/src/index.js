@@ -11,9 +11,11 @@ async function startApolloServer() {
 
   const { url } = await startStandaloneServer(server, {
     context: async () => {
+      const { cache } = server;
+
       return {
         dataSources: {
-          trackAPI: new TrackAPI(),
+          trackAPI: new TrackAPI({ cache }),
         },
       };
     },
