@@ -4,7 +4,8 @@
   "description": "back-end demo app for Apollo's lift-off II course",
   "main": "src/index.js",
   "scripts": {
-    "start": "nodemon src/index"
+    "compile": "tsc",
+    "start": "npm run compile && nodemon ./dist/index.js"
   },
   "dependencies": {
     "@apollo/server": "^4.5.0",
@@ -14,10 +15,12 @@
     "graphql-tag": "^2.12.6"
   },
   "devDependencies": {
-    "dotenv": "^8.2.0",
-    "nodemon": "^2.0.4"
+    "dotenv": "^8.6.0",
+    "nodemon": "^2.0.20",
+    "typescript": "^5.1.3"
   },
   "author": "Raphael Terrier @R4ph-t",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "type": "module"
 }
