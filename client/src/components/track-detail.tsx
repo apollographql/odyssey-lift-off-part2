@@ -9,7 +9,7 @@ import {
   IconBook,
 } from '../styles';
 import { humanReadableTimeFromSeconds } from '../utils/helpers';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import ContentSection from './content-section';
 import MarkDown from './md-content';
 
@@ -18,12 +18,12 @@ import MarkDown from './md-content';
  * author, length, number of views, modules list, among other things.
  * It provides access to the first module of the track.
  */
-const TrackDetail = ({ track }) => {
+const TrackDetail: React.FC<{track: any}> = ({track}) => {
   const {
     title,
     description,
     thumbnail,
-    author,
+    author = { photo: '', name: ''},
     length,
     modulesCount,
     modules,
@@ -32,7 +32,7 @@ const TrackDetail = ({ track }) => {
 
   return (
     <ContentSection>
-      <CoverImage src={thumbnail} alt="" />
+      <CoverImage src={thumbnail ?? ''} alt="" />
       <TrackDetails>
         <DetailRow>
           <h1>{title}</h1>
@@ -50,16 +50,17 @@ const TrackDetail = ({ track }) => {
             </IconAndLabel>
             <IconAndLabel>
               <IconTime width="14px" />
-              <div>{humanReadableTimeFromSeconds(length)}</div>
+              <div>{humanReadableTimeFromSeconds(length ?? 0)}</div>
             </IconAndLabel>
           </DetailItem>
           <DetailItem>
             <h4>Author</h4>
-            <AuthorImage src={author.photo} />
+            <AuthorImage src={author.photo ?? ''} />
             <AuthorName>{author.name}</AuthorName>
           </DetailItem>
           <div>
-            <StyledLink to={`./module/${modules[0]['id']}`}>
+            {/* Need to comment this out until Link is placed within a Router */}
+            {/* <StyledLink to={`./module/${modules[0]['id']}`}> */}
               <Button
                 icon={<IconRun width="20px" />}
                 color={colors.pink.base}
@@ -67,18 +68,18 @@ const TrackDetail = ({ track }) => {
               >
                 Start Track
               </Button>
-            </StyledLink>
+            {/* </StyledLink> */}
           </div>
         </DetailRow>
         <ModuleListContainer>
           <DetailItem>
             <h4>Modules</h4>
             <ul>
-              {modules.map((module) => (
+              {modules.map((module: any) => (
                 <li key={module.title}>
                   <div>{module.title}</div>
                   <ModuleLength>
-                    {humanReadableTimeFromSeconds(module.length)}
+                    {humanReadableTimeFromSeconds(module.length ?? 0)}
                   </ModuleLength>
                 </li>
               ))}
@@ -101,10 +102,10 @@ const CoverImage = styled.img({
   marginBottom: 30,
 });
 
-const StyledLink = styled(Link)({
-  textDecoration: 'none',
-  color: 'white',
-});
+// const StyledLink = styled(Link)({
+//   textDecoration: 'none',
+//   color: 'white',
+// });
 
 const TrackDetails = styled.div({
   display: 'flex',
