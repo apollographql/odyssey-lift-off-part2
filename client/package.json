@@ -4,10 +4,7 @@
   "private": true,
   "description": "front-end demo app for Apollo's lift-off II course",
   "dependencies": {
-<<<<<<< HEAD
     "@apollo/client": "^3.7.15",
-=======
->>>>>>> main
     "@apollo/space-kit": "^9.3.1",
     "@emotion/cache": "^11.4.0",
     "@emotion/core": "^10.1.1",
@@ -23,20 +20,10 @@
     "react-router-dom": "^6.8.0"
   },
   "scripts": {
-<<<<<<< HEAD
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "generate": "graphql-codegen"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-=======
     "test": "vitest",
     "start": "vite",
-    "build": "vite build"
->>>>>>> main
+    "build": "vite build",
+    "generate": "graphql-codegen"
   },
   "browserslist": {
     "production": [
