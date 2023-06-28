@@ -5,6 +5,7 @@
     "target": "es2020",
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "module": "commonjs"
-  }
+    "module": "commonjs",
+  },
+  "include": ["src"]
 }
