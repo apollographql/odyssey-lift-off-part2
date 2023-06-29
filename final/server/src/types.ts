@@ -1,6 +1,6 @@
 import { GraphQLResolveInfo } from 'graphql';
 import { TrackModel } from './models';
-import { TrackContext } from './context';
+import { DataSourceContext } from './context';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -140,18 +140,18 @@ export type ResolversParentTypes = {
   Track: TrackModel;
 };
 
-export type AuthorResolvers<ContextType = TrackContext, ParentType extends ResolversParentTypes['Author'] = ResolversParentTypes['Author']> = {
+export type AuthorResolvers<ContextType = DataSourceContext, ParentType extends ResolversParentTypes['Author'] = ResolversParentTypes['Author']> = {
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   photo?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
-export type QueryResolvers<ContextType = TrackContext, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
+export type QueryResolvers<ContextType = DataSourceContext, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
   tracksForHome?: Resolver<Array<ResolversTypes['Track']>, ParentType, ContextType>;
 };
 
-export type TrackResolvers<ContextType = TrackContext, ParentType extends ResolversParentTypes['Track'] = ResolversParentTypes['Track']> = {
+export type TrackResolvers<ContextType = DataSourceContext, ParentType extends ResolversParentTypes['Track'] = ResolversParentTypes['Track']> = {
   author?: Resolver<ResolversTypes['Author'], ParentType, ContextType>;
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   length?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
@@ -161,7 +161,7 @@ export type TrackResolvers<ContextType = TrackContext, ParentType extends Resolv
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
-export type Resolvers<ContextType = TrackContext> = {
+export type Resolvers<ContextType = DataSourceContext> = {
   Author?: AuthorResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
   Track?: TrackResolvers<ContextType>;

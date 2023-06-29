@@ -1,6 +1,6 @@
 import {TrackAPI} from "./datasources/track-api"
 
-export interface TrackContext {
+export interface DataSourceContext {
   dataSources: {
     trackAPI: TrackAPI
   }
