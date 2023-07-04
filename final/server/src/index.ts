@@ -5,7 +5,7 @@ import { resolvers } from "./resolvers";
 import { TrackAPI } from "./datasources/track-api";
 
 async function startApolloServer() {
-  const server = new ApolloServer({ typeDefs, resolvers })
+  const server = new ApolloServer({ typeDefs, resolvers });
   const { url } = await startStandaloneServer(server, {
     context: async () => {
       const { cache } = server;
@@ -22,4 +22,4 @@ async function startApolloServer() {
   `);
 }
 
-startApolloServer()
+startApolloServer();

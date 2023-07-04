@@ -1,7 +1,7 @@
-import {TrackAPI} from "./datasources/track-api"
+import { TrackAPI } from "./datasources/track-api";
 
 export interface DataSourceContext {
   dataSources: {
-    trackAPI: TrackAPI
-  }
+    trackAPI: TrackAPI;
+  };
 }
