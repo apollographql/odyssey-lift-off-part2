@@ -7,7 +7,7 @@ import Tracks from '../tracks';
 
 /** Best practice is to export this operation from the component file. We've defined it separately to remain consistent with the course content. */
 const TRACKS = gql`
-  query getTracks {
+  query getTracksTest {
     tracksForHome {
       id
       title
