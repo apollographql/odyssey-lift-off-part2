@@ -1,9 +1,26 @@
 import React from 'react';
 // this adds custom jest matchers from jest-dom
 import '@testing-library/jest-dom/extend-expect';
-import { InMemoryCache } from '@apollo/client';
-import { renderApollo, cleanup, waitForElement } from '../../utils/test-utils';
-import Tracks, { TRACKS } from '../tracks';
+import { InMemoryCache, gql } from '@apollo/client';
+import { renderApolloWithRouter, cleanup, waitForElement } from '../../utils/test-utils';
+import Tracks from '../tracks';
+
+/** Best practice is to export this operation from the component file. We've defined it separately to remain consistent with the course content. */
+const TRACKS = gql`
+  query getTracks {
+    tracksForHome {
+      id
+      title
+      thumbnail
+      length
+      modulesCount
+      author {
+        name
+        photo
+      }
+    }
+  }
+`;
 
 const mockTrack = {
   id: 'c_0',
@@ -35,7 +52,7 @@ describe('Tracks Page', () => {
       },
     ];
 
-    const { getByText } = await renderApollo(<Tracks />, {
+    const { getByText } = await renderApolloWithRouter(<Tracks />, {
       mocks,
       cache,
     });
