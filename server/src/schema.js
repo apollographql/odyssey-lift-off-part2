@@ -3,7 +3,7 @@ const gql = require('graphql-tag');
 const typeDefs = gql`
   type Query {
     tracksForHome: [Track!]!
-    track: Track
+    track(id:ID!): Track
   }
 
   type Track {
