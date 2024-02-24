@@ -26,12 +26,7 @@ const mocks = {
 };
 
 async function startApolloServer() {
-  const server = new ApolloServer({
-    schema: addMocksToSchema({
-      schema: makeExecutableSchema({ typeDefs }),
-      mocks,
-    }),
-  });
+  const server = new ApolloServer({ typeDefs });
   const { url } = await startStandaloneServer(server);
   console.log(`
     🚀  Server is running!
