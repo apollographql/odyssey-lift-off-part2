@@ -14,7 +14,7 @@
     "graphql-tag": "^2.12.6"
   },
   "devDependencies": {
-    "dotenv": "^8.2.0",
+    "dotenv": "^16.0.0",
     "nodemon": "^3.0.2"
   },
   "author": "Raphael Terrier @R4ph-t",
