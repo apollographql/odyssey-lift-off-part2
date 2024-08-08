@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "back-end demo app for Apollo's lift-off II course",
   "main": "src/index.js",
+  "type": "module",
   "scripts": {
     "start": "nodemon src/index"
   },
@@ -10,8 +11,12 @@
     "@apollo/server": "^4.5.0",
     "@graphql-tools/mock": "^8.7.6",
     "@graphql-tools/schema": "^9.0.4",
+    "@prisma/client": "^5.18.0",
+    "bcrypt": "^5.1.1",
     "graphql": "^16.6.0",
-    "graphql-tag": "^2.12.6"
+    "graphql-tag": "^2.12.6",
+    "jose": "^5.6.3",
+    "prisma": "^5.18.0"
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
