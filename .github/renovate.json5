@@ -40,7 +40,7 @@
     // https://docs.renovatebot.com/configuration-options/#packagerules
     {
       matchPackageNames: ["react"],
-      allowedVersions: "16.x",
+      allowedVersions: "18.x",
     },
   ],
 }

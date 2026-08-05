@@ -1,5 +1,5 @@
 import React from 'react';
-import { renderApolloWithRouter, cleanup, waitForElement } from '../../utils/test-utils';
+import { renderApolloWithRouter, cleanup, waitFor } from '../../utils/test-utils';
 import TrackCard from '../track-card';
 
 const mockTrackCardData = {
@@ -29,6 +29,6 @@ describe('Track Card', () => {
         addTypename: false,
       }
     );
-    await waitForElement(() => getByText(/cat-stronomy/i));
+    await waitFor(() => getByText(/cat-stronomy/i));
   });
 });

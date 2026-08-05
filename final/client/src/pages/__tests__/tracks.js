@@ -1,8 +1,8 @@
 import React from 'react';
 // this adds custom jest matchers from jest-dom
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom/vitest';
 import { InMemoryCache, gql } from '@apollo/client';
-import { renderApolloWithRouter, cleanup, waitForElement } from '../../utils/test-utils';
+import { renderApolloWithRouter, cleanup, waitFor } from '../../utils/test-utils';
 import Tracks from '../tracks';
 
 /** Best practice is to export this operation from the component file. We've defined it separately to remain consistent with the course content. */
@@ -57,13 +57,13 @@ describe('Tracks Page', () => {
       cache,
     });
 
-    await waitForElement(() => getByText(/nap, the hard way/i));
+    await waitFor(() => getByText(/nap, the hard way/i));
   });
 });
 
 /*
 import React from 'react';
-import { renderApollo, cleanup, waitForElement } from '../../test-utils';
+import { renderApollo, cleanup, waitFor } from '../../test-utils';
 import { InMemoryCache } from '@apollo/client';
 
 import Tracks, { TRACKS } from '../tracks';
@@ -98,6 +98,6 @@ describe('Tracks Page', () => {
       mocks,
       cache,
     });
-    await waitForElement(() => getByText(/nap, the hard way/i));
+    await waitFor(() => getByText(/nap, the hard way/i));
   });
 });*/
