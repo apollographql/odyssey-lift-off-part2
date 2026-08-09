@@ -1,3 +1,3 @@
 # Catstronauts - server
 
-The final stage of the `server` code after completing the Odyssey Lift-off II course.
+The final state of the `server` code after finishing Odyssey Lift-off II course.
