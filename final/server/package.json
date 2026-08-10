@@ -21,5 +21,8 @@
   },
   "author": "Raphael Terrier @R4ph-t",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "nodemonConfig": {
+    "ext": "js,graphql"
+  }
 }
