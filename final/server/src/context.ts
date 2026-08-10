@@ -4,4 +4,4 @@ export type DataSourceContext = {
   dataSources: {
     trackAPI: TrackAPI;
   };
-}
+};
