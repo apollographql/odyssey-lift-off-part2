@@ -1,7 +1,4 @@
-import gql from "graphql-tag";
-
-export const typeDefs = gql`
-  type Query {
+type Query {
   "Get tracks array for homepage grid"
   tracksForHome: [Track!]!
 }
@@ -29,4 +26,3 @@ type Author {
   "Author's profile picture url"
   photo: String
 }
-`;
