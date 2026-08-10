@@ -1,9 +1,13 @@
-import React from 'react';
+import React from "react";
 // this adds custom jest matchers from jest-dom
-import '@testing-library/jest-dom/vitest';
-import { InMemoryCache, gql } from '@apollo/client';
-import { renderApolloWithRouter, cleanup, waitFor } from '../../utils/test-utils';
-import Tracks from '../tracks';
+import "@testing-library/jest-dom/vitest";
+import { InMemoryCache, gql } from "@apollo/client";
+import {
+  renderApolloWithRouter,
+  cleanup,
+  waitFor,
+} from "../../utils/test-utils";
+import Tracks from "../tracks";
 
 /** Best practice is to export this operation from the component file. We've defined it separately to remain consistent with the course content. */
 const TRACKS = gql`
@@ -23,24 +27,24 @@ const TRACKS = gql`
 `;
 
 const mockTrack = {
-  id: 'c_0',
-  title: 'Nap, the hard way',
+  id: "c_0",
+  title: "Nap, the hard way",
   thumbnail:
-    'https://images.unsplash.com/photo-1542403810-74c578300013?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjExNzA0OH0',
+    "https://images.unsplash.com/photo-1542403810-74c578300013?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjExNzA0OH0",
   length: 1420,
   modulesCount: 6,
   author: {
-    name: 'Cheshire Cat',
+    name: "Cheshire Cat",
     photo:
-      'https://images.unsplash.com/photo-1593627010886-d34828365da7?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjExNzA0OH0',
+      "https://images.unsplash.com/photo-1593627010886-d34828365da7?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjExNzA0OH0",
   },
 };
 
-describe('Tracks Page', () => {
+describe("Tracks Page", () => {
   afterEach(cleanup);
   const cache = new InMemoryCache({ addTypename: false });
 
-  it('renders tracks', async () => {
+  it("renders tracks", async () => {
     const mocks = [
       {
         request: { query: TRACKS },
