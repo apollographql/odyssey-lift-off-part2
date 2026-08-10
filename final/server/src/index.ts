@@ -25,7 +25,7 @@ async function startApolloServer() {
     },
   });
   console.log(`
-    🚀  Server is running!
+    🚀  Server is running
     📭  Query at ${url}
   `);
 }
