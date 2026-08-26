@@ -1,29 +1,34 @@
-import React from 'react';
+import React from "react";
 // this adds custom jest matchers from jest-dom
-import '@testing-library/jest-dom/extend-expect';
-import { InMemoryCache, gql } from '@apollo/client';
-import { renderApolloWithRouter, cleanup, waitForElement } from '../../utils/test-utils';
-import Tracks, { TRACKS} from '../tracks';
+import "@testing-library/jest-dom/vitest";
+import { InMemoryCache, gql } from "@apollo/client";
+import {
+  renderApolloWithRouter,
+  cleanup,
+  waitFor,
+} from "../../utils/test-utils";
+import Tracks, { TRACKS } from "../tracks";
 
 const mockTrack = {
-  id: 'c_0',
-  title: 'Nap, the hard way',
+  id: "c_0",
+  title: "Nap, the hard way",
   thumbnail:
-    'https://images.unsplash.com/photo-1542403810-74c578300013?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjExNzA0OH0',
+    "https://images.unsplash.com/photo-1542403810-74c578300013?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjExNzA0OH0",
   length: 1420,
   modulesCount: 6,
   author: {
-    name: 'Cheshire Cat',
+    id: "a_1",
+    name: "Cheshire Cat",
     photo:
-      'https://images.unsplash.com/photo-1593627010886-d34828365da7?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjExNzA0OH0',
+      "https://images.unsplash.com/photo-1593627010886-d34828365da7?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjExNzA0OH0",
   },
 };
 
-describe('Tracks Page', () => {
+describe("Tracks Page", () => {
   afterEach(cleanup);
-  const cache = new InMemoryCache({ addTypename: false });
+  const cache = new InMemoryCache();
 
-  it('renders tracks', async () => {
+  it("renders tracks", async () => {
     const mocks = [
       {
         request: { query: TRACKS },
@@ -40,13 +45,13 @@ describe('Tracks Page', () => {
       cache,
     });
 
-    await waitForElement(() => getByText(/nap, the hard way/i));
+    await waitFor(() => getByText(/nap, the hard way/i));
   });
 });
 
 /*
 import React from 'react';
-import { renderApollo, cleanup, waitForElement } from '../../test-utils';
+import { renderApollo, cleanup, waitFor } from '../../test-utils';
 import { InMemoryCache } from '@apollo/client';
 
 import Tracks, { TRACKS } from '../tracks';
@@ -66,7 +71,7 @@ describe('Tracks Page', () => {
   afterEach(cleanup);
 
   it('renders tracks', async () => {
-    const cache = new InMemoryCache({ addTypename: false });
+    const cache = new InMemoryCache();
     const mocks = [
       {
         request: { query: TRACKS },
@@ -81,6 +86,6 @@ describe('Tracks Page', () => {
       mocks,
       cache,
     });
-    await waitForElement(() => getByText(/nap, the hard way/i));
+    await waitFor(() => getByText(/nap, the hard way/i));
   });
 });*/

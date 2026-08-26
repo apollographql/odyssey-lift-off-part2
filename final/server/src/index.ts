@@ -1,8 +1,16 @@
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
-import { typeDefs } from "./schema";
 import { resolvers } from "./resolvers";
 import { TrackAPI } from "./datasources/track-api";
+import { readFileSync } from "fs";
+import path from "path";
+import gql from "graphql-tag";
+
+const typeDefs = gql(
+  readFileSync(path.resolve(__dirname, "./schema.graphql"), {
+    encoding: "utf-8",
+  }),
+);
 
 async function startApolloServer() {
   const server = new ApolloServer({ typeDefs, resolvers });
@@ -17,7 +25,7 @@ async function startApolloServer() {
     },
   });
   console.log(`
-    🚀  Server is running!
+    🚀  Server is running
     📭  Query at ${url}
   `);
 }
