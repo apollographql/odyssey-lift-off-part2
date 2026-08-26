@@ -12,7 +12,7 @@
     "dotenv": "^17.4.1",
     "nodemon": "^3.1.14",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^7.0.2"
+    "typescript": "^5.7.3"
   },
   "author": "Raphael Terrier @R4ph-t",
   "license": "MIT",

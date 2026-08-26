@@ -6,7 +6,11 @@ import { makeExecutableSchema } from "@graphql-tools/schema";
 
 const mocks = {
   Query: () => ({
-    tracksForHome: () => [...new Array(6)],
+    tracksForHome: () =>
+      Array.from({ length: 8 }, (_, index) => ({
+        id: `track_${index + 1}`,
+        title: `Astro Kitty, Space Explorer ${index + 1}`,
+      })),
   }),
   Track: () => ({
     id: () => "track_01",
@@ -15,11 +19,11 @@ const mocks = {
       return {
         name: "Grumpy Cat",
         photo:
-          "https://res.cloudinary.com/dety84pbu/image/upload/v1606816219/kitty-veyron-sm_mctf3c.jpg",
+          "https://res.cloudinary.com/apollographql/image/upload/v1730818804/odyssey/lift-off-api/catstrophysicist_bqfh9n_j0amow.jpg",
       };
     },
     thumbnail: () =>
-      "https://res.cloudinary.com/dety84pbu/image/upload/v1598465568/nebula_cat_djkt9r.jpg",
+      "https://res.cloudinary.com/apollographql/image/upload/v1730818804/odyssey/lift-off-api/nebula_cat_djkt9r_nzifdj.jpg",
     length: () => 1210,
     modulesCount: () => 6,
   }),
