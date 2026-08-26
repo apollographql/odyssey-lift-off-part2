@@ -7,16 +7,22 @@
     "start": "nodemon src/index"
   },
   "dependencies": {
-    "@apollo/datasource-rest": "^5.0.2",
-    "@apollo/server": "^4.5.0",
-    "graphql": "^16.6.0",
+    "@apollo/datasource-rest": "^6.0.0",
+    "@apollo/server": "^5.0.0",
+    "graphql": "^16.11.0",
     "graphql-tag": "^2.12.6"
   },
   "devDependencies": {
-    "dotenv": "^8.2.0",
-    "nodemon": "^3.0.2"
+    "dotenv": "^16.4.0",
+    "nodemon": "^3.1.0"
+  },
+  "engines": {
+    "node": ">=20"
   },
   "author": "Raphael Terrier @R4ph-t",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "nodemonConfig": {
+    "ext": "js,graphql"
+  }
 }
