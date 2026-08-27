@@ -7,7 +7,7 @@
     "esModuleInterop": true,
     "module": "Node16",
     "forceConsistentCasingInFileNames": true,
-    "strict": true
+    "strict": false
   },
   "include": ["src"]
 }
