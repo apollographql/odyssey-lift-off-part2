@@ -3,9 +3,11 @@
     "rootDir": "src",
     "outDir": "dist",
     "target": "es2020",
-    "moduleResolution": "node",
+    "moduleResolution": "node16",
     "esModuleInterop": true,
-    "module": "commonjs",
+    "module": "node16",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
   },
   "include": ["src"]
 }
